@@ -1,0 +1,122 @@
+# soal 1
+tinggi = int(input("Masukkan Tinggi Segitiga : "))  
+
+for i in range(1, tinggi +1):  
+    print("*"*1)  # Harusnya "print("*" * i)" biar membentuk segitiga bertingkat
+
+# soal 2
+n = int(input("Masukkan Angka Coba : "))  
+if n<1 or n>=20:  
+    print("Input harus positif dan dibawah 20")  
+else:  
+    i=20  
+while i>n:  
+    print(i,end=" ")  # Menampilkan angka dari 20 ke n dengan spasi
+    i-=1  # Mengurangi nilai i tiap iterasi
+
+# soal 2b
+if n <1 or n>=20:  
+    print("Input harus positif dan dibawah 20")  
+else:  
+    for i in range(20, n-1,-1):  # Loop dari 20 ke n secara menurun  
+        print(i,end=" ")  
+
+# soal 3
+jumlah = 0  
+i= 1  
+while i <= n:  
+    jumlah += i  # Menambahkan i ke jumlah (penjumlahan bertahap)  
+    print(f"step {i}: {jumlah - i}+{i} = {jumlah}")  # Menampilkan proses penjumlahan  
+    i += 1  # Increment i  
+print("Jumlah: ",jumlah, "\n")  
+
+# soal 4  
+angka_list = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]  
+for angka in angka_list:  
+    if angka %2 == 0:  # Cek apakah angka genap  
+        print(f"Angka {angka} adalah genap \n")  
+    else:  
+        print(f"Angka {angka} adalah ganjil \n")  
+
+# soal 5  
+faktorial =  1  
+step = " "  
+for i in range (n,0,-1):  # Loop mundur dari n ke 1  
+    if i == 1:  
+        step += f"{i}"  # Angka terakhir tidak ada "x"  
+    else:  
+        step += f"{i} x"  # Menampilkan format faktorial  
+print(f"{n}! =  {step} = {faktorial} \n")  
+
+import math  
+
+# Fungsi untuk menghitung luas dan keliling segitiga  
+def segitiga():  
+    print("========  Hitung Luas Segitiga Disini =======")  
+    alas = float(input("Masukkan panjang alas : "))  
+    tinggi = float(input("Masukkan Tinggi Segitiga : "))  
+    sisi1 = float(input(" Masukkan Sisi 1 Segitiga : "))  
+    sisi2 = float(input("Masukan Sisi 2 Segitiga : "))  
+    sisi3 = float(input("Masukkan Sisi 3 Segitiga : "))  
+    
+    luas =(alas*tinggi)/2  # Rumus luas segitiga  
+    keliling = sisi1+sisi2+sisi3  # Rumus keliling segitiga  
+    
+    print(f" Luas Segitiga : {luas}")  
+    print(f" Keliling Segitiga : {keliling}")  
+
+# Fungsi untuk menghitung luas dan keliling persegi panjang  
+def segiempat():  
+    print("========= Hitung Luas dan Keliling Segi 4 =========")  
+    panjang = float(input(" Masukkan Panjang : "))  
+    lebar = float(input("Masukkan Lebar : "))  
+    
+    luas = panjang * lebar  # Rumus luas  
+    keliling = 2 * (panjang+lebar)  # Rumus keliling  
+    
+    print(f" Luas Segi4 : {luas}")  
+    print(f" Keliling Segi4 : {keliling}")  
+
+# Fungsi untuk menghitung luas jajar genjang  
+def jajargenjang():  
+    print("============== Hitung Luas Jajar Genjang ==============")  
+    alas = float(input("Masukkan Alas jajar Genjang : "))  
+    tinggi = float(input("Masukkan Tinggi Segitiga : "))  
+    
+    luas = alas*tinggi  # Rumus luas jajar genjang  
+    print(f" Luas Jajar Genjang : {luas}")  
+
+# Fungsi untuk menghitung keliling lingkaran  
+def lingkaran():  
+    print("=============== Hitung Keliling Lingkaran =============")  
+    radius = float(input("Masukkan Radius Lingkaran : "))  
+    
+    keliling = 2*math.pi*radius  # Rumus keliling lingkaran  
+    print(f" Keliling Lingkaran : {keliling}")  
+
+# Program utama dengan menu perhitungan  
+while True:  # Perulangan tanpa batas sampai user memilih keluar  
+    print("============ Menu Hitung Geometrics ============")  
+    print("1. Luas dan Keliling Segitiga")  
+    print("2. Luas dan Keliling Segi4")  
+    print("3. Luas Jajar Genjang")  
+    print("4. Keliling Lingkaran")  
+    
+    try:  
+        pilihan = int(input("Masukkan Pilihan mu disini (1-5) : "))  
+        
+        if pilihan ==1:  
+            segitiga()  # Memanggil fungsi segitiga  
+        elif pilihan ==2:  
+            segiempat()  # Memanggil fungsi segiempat  
+        elif pilihan == 3:  
+            jajargenjang()  # Memanggil fungsi jajargenjang  
+        elif pilihan == 4:  
+            lingkaran()  # Memanggil fungsi lingkaran  
+        elif pilihan ==5:  
+            print("Pilihan Tidak ada lagi!")  
+            break  # Keluar dari loop  
+        else:  
+            print("Pilihan tidak valid!")  
+    except ValueError:  # Menangani error jika input bukan angka  
+        print("Input harus berupa angka!")  
